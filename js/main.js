@@ -20,6 +20,7 @@ const prepareDOMElements = () => {
 
 const prepareDOMEvent = () => {
     addBtn.addEventListener('click', addNewTodo)
+    ulList.addEventListener('click', checkCLick)
 }
 
 const addNewTodo = () => {
@@ -47,7 +48,7 @@ const createToolsArea = (newTodo) => {
 
 
         const complateBtn = document.createElement('button')
-        complateBtn.classList.add('complate')
+        complateBtn.classList.add('complete')
 
         complateBtn.innerHTML = '<i class="fas fa-check"></i>'
         const editBtn = document.createElement('button')
@@ -60,6 +61,18 @@ const createToolsArea = (newTodo) => {
 
         toolsPanel.append(complateBtn, editBtn, deleteBtn)
         
+    }
+}
+
+const checkCLick = e => {
+    if (e.target.matches('.complete')) {
+
+        e.target.closest('li').classList.toggle('completed')
+        e.target.classList.toggle('completed')
+    } else if (e.target.matches('.edit')) {
+
+    } else if (e.target.matches('.delete')) {
+
     }
 }
 
